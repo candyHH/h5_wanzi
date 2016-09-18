@@ -7,5 +7,19 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <input type="text" value="" class="num">
+    <button type="button" class="sure">确认</button>
   </body>
+
+  <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript">
+    $('.sure').on('click',function () {
+      var reg = new RegExp("^\d{11}$");
+      var inp = $('.num').val();
+      if(!reg.test(inp)){
+        console.log('输入数字');
+      }
+    })
+
+  </script>
 </html>
