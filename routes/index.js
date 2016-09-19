@@ -3,8 +3,8 @@ var router = express.Router();
 var superagent = require('superagent');
 var redis = require('redis');
 var config = require('../config.js');
-var client  = redis.createClient(config.redis.port, '127.0.0.1');
-// client.auth(config.redis.pwd);
+var client  = redis.createClient(config.redis.port,config.redis.ip);
+client.auth(config.redis.pwd);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,7 +25,6 @@ router.get('/', function(req, res, next) {
       if (res2 !== undefined && res2.ok) {
         res2.body.isWechat = isWechat;
         res2.body.browserUrl = global.browserURL;
-        res2.body.title = '看乐可旅行直播，送旅行好礼';
         res.render('index', res2.body);
       } else {
         console.error('微信分享api错误。');
@@ -51,7 +50,6 @@ router.get('/index', function(req, res, next) {
       if (res2 !== undefined && res2.ok) {
         res2.body.isWechat = isWechat;
         res2.body.browserUrl = global.browserURL;
-        res2.body.title = '看乐可旅行直播，送旅行好礼';
         res.render('index', res2.body);
       } else {
         console.error('微信分享api错误。');
@@ -71,8 +69,7 @@ router.get('/success', function(req, res, next) {
       if (res2 !== undefined && res2.ok) {
         res2.body.flag = isWechat;
         res2.body.browserUrl = global.browserURL;
-        res2.body.title = '看乐可旅行直播，送旅行好礼';
-        res.render('success', res2.body);
+        res.render('success',res2.body);
       } else {
         console.error('微信分享api错误。');
       }
@@ -89,8 +86,7 @@ router.get('/share', function(req, res, next) {
     .end(function(err2, res2) {
       if (res2 !== undefined && res2.ok) {
         res2.body.browserUrl = global.browserURL;
-        res2.body.title = '看乐可旅行直播，送旅行好礼';
-        res.render('success', res2.body);
+        res.render('share',res2.body);
       } else {
         console.error('微信分享api错误。');
       }
@@ -98,19 +94,21 @@ router.get('/share', function(req, res, next) {
 });
 
 router.get('/show', function(req, res, next) {
+  var number = [];
+  var date = [];
   client.select(config.redis.db,function (error) {
     if(error){
       console.log(error);
     }else{
-      client.smembers('num',function (err,num) {
-        console.log(num);
-        console.log(num.length);
-        var data = [];
-        for(var i =0;i<num.length;i++){
-          data.push(client.get(num[i]));
+      client.hgetall('user',function (err,user) {
+        // console.log(user);
+        for(var key in user){
+          number.push(key);
+          console.log(user[key]);
+          date.push(user[key]);
         }
-        res.render('show',{num:num,data:data});
-      });
+        res.render('show',{num:number,data:date});
+      })
     }
   });
 });
@@ -123,8 +121,8 @@ router.post('/pass',function (req,res,next) {
       if(error){
         console.log(error);
       }else{
-        client.sadd('num',num);
-        client.set(num,data);
+        client.hset('user',num,data);
+        // client.set(num,data);
         var result = '成功插入数据';
         res.send({result: result});
       }
