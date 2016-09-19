@@ -2,24 +2,68 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel='stylesheet' href='stylesheets/index.css' />
+    <%include include_count.ejs %>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <input type="text" value="" class="num">
-    <button type="button" class="sure">确认</button>
+    <div class="top-img">
+      <img src="images/lalocal.png" alt="乐可旅行标志" />
+    </div>
+    <div class="banner">
+      <img src="images/indexTop.png" alt="首页顶部图" />
+    </div>
+    <div class="num-input">
+      <img src="images/inputNum.png" alt="手机号码输入框" />
+      <input type="text" class="number" value="" placeholder="请输入手机号码" maxlength="11">
+    </div>
+    <button type="button" class="get-cunpon">
+      <img src="images/getCunpon.png" alt="领取优惠" />
+   </button>
+   <div class="active-rule">
+     <img src="images/activeRule.png" alt="活动规则" />
+     <p>
+       1.旅行基金新老用户共享 <br>
+       2.旅行基金可与其他优惠叠加使用<br>
+       3.旅行基金可在订单提交时直接输入优惠码抵扣相应现金<br>
+       4.仅限App在线支付使用<br>
+       5.单个优惠码仅与一个手机号捆绑使用<br>
+       6.其他未尽事宜，请咨询客服<br>
+       7.活动时间：2016.9.25-2016.9.30
+     </p>
+     <div class="display-sesize"></div>
+   </div>
+    <div class="display-sesize"></div>
   </body>
 
-  <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery-1.10.1.min.js"></script>
+
   <script type="text/javascript">
-    $('.sure').on('click',function () {
-      var reg = new RegExp("^\d{11}$");
-      var inp = $('.num').val();
-      if(!reg.test(inp)){
-        console.log('输入数字');
+    $('.get-cunpon').on('click',function () {
+      var num = $('.number').val();
+      if(!/^\d{11}$/.test(num)){
+        alert('请输入11位数字');
+        $('.number').val('');
+      }else{
+        var data = (new Date()).toLocaleDateString() + " " + (new Date()).toLocaleTimeString();
+        console.log(data);
+        var isWechat = '<%=isWechat%>';
+        console.log(isWechat);
+        $.ajax({
+          type : 'post',
+          url : 'pass',
+          data : {
+            num : num,
+            data : data,
+          },
+          dataType : 'json',
+          success:function (data) {
+            window.location.href='success?flag='+isWechat;
+          }
+        })
       }
     })
-
   </script>
 </html>

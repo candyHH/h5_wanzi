@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel='stylesheet' href='stylesheets/success.css' />
+    <%include include_count.ejs %>
+  </head>
+  <body>
+    <div class="top-img">
+      <img src="images/lalocal.png" alt="乐可旅行标志" />
+    </div>
+    <div class="banner">
+      <img src="images/successTop.png" alt="首页顶部图" />
+    </div>
+    <div class="content">
+      <div class="coupon">
+        <img src="images/lalocalCoupon.png" alt="乐可优惠券" / class="lalocalCoupon">
+        <h6>乐可旅行</h6>
+        <div class="display-sesize"></div>
+        <img src="images/wanziCoupon.png" alt="丸子优惠券" / class="wanziCoupon">
+        <h6>乐可旅行</h6>
+      </div>
+      <div class="display-sesize"></div>
+      <div class="btn-group">
+        <img src="images/cashBtn.png" alt="立即兑换" / class="cashBtn">
+        <img src="images/downBtn.png" alt="下载使用" / class="downBtn">
+        <img src="images/shareBtn.png" alt="微信分享" / class="shareBtn">
+      </div>
+      <div class="active-rule">
+        <img src="images/activeRule.png" alt="活动规则" />
+        <p>
+          1.旅行基金新老用户共享 <br>
+          2.旅行基金可与其他优惠叠加使用<br>
+          3.旅行基金可在订单提交时直接输入优惠码抵扣相应现金<br>
+          4.仅限App在线支付使用<br>
+          5.单个优惠码仅与一个手机号捆绑使用<br>
+          6.其他未尽事宜，请咨询客服<br>
+          7.活动时间：2016.9.25-2016.9.30
+        </p>
+        <div class="display-sesize"></div>
+      </div>
+    </div>
+    <div class="display-sesize"></div>
+  </body>
+
+  <script type="text/javascript" src="javascripts/jquery-1.10.1.min.js"></script>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      var flag = '<%=flag%>';
+      console.log(flag);
+      if(flag){
+        $('.downBtn').show();
+        $('.cashBtn').hide();
+      }
+    }
+    $('.downBtn').on('click',function () {
+      window.location.href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.lalocal.lalocal';
+    })
+    $('.shareBtn').on('click',function () {
+      window.location.href = 'share';
+    })
+  </script>
+</html>

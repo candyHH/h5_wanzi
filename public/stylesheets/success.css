@@ -1,0 +1,91 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html,body{
+  width: 100%;
+  background-color: #F9E746;
+}
+
+.top-img{
+  width: 20%;
+  margin: 16px 0 0 20px;
+}
+
+.top-img img{
+  width: 100%;
+}
+
+.banner{
+  width: 88%;
+  margin:24px 6% 0;
+}
+
+.banner img{
+  width: 100%;
+}
+
+.content{
+  width: 88%;
+  margin:-1% 6%;
+  background-color: #FFF19C;
+  padding: 5% 0 0;
+}
+
+.coupon{
+  width: 91%;
+  margin:0 4.5% 3%;
+}
+
+.coupon img{
+  width: 100%;
+}
+
+.lalocalCoupon{
+  margin:0 0 2% 0;
+}
+
+.wanziCoupon{
+  margin: 2% 0 0 0;
+}
+
+.coupon h6{
+  margin: -14% 0 0 34%;
+}
+
+.btn-group{
+  width: 70%;
+  margin: 0 15%;
+}
+
+.btn-group img{
+  width: 100%;
+}
+
+.downBtn{
+  display: none;
+}
+
+.shareBtn{
+  margin:1.8% 0 0 0;
+}
+
+.active-rule{
+  width: 70%;
+  margin: 5% 15% 0;
+}
+
+.active-rule img{
+  width: 100%;
+}
+
+.active-rule p{
+  font-size: 10pt;
+  line-height: 15pt;
+}
+
+.display-sesize{
+  width: 100%;
+  height: 35px;
+}

@@ -1,0 +1,79 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html,body{
+  width: 100%;
+  background-color: #F9E746;
+}
+
+.top-img{
+  width: 20%;
+  margin: 16px 0 0 20px;
+}
+
+.top-img img{
+  width: 100%;
+}
+
+.banner{
+  width: 100%;
+  margin:-15px 0 0 0;
+}
+
+.banner img{
+  width: 100%;
+}
+
+.num-input{
+  width: 80%;
+  margin: 3% 10% 0;
+}
+
+.num-input img{
+  width: 100%;
+  height: 4.8%;
+}
+
+.number{
+  width: 80%;
+  margin: -10% 0 0 10%;
+  display: block;
+  border: none;
+  position: relative;
+}
+
+.get-cunpon{
+  width: 70%;
+  margin: 6% 15% 0;
+  border: none;
+  text-shadow:none;
+  background-color: transparent;
+}
+
+.get-cunpon img{
+  width: 100%;
+}
+
+.active-rule{
+  width: 70%;
+  margin: 5% 10% 0;
+  padding: 2% 5% 0;
+  background-color: #FFF19C;
+}
+
+.active-rule img{
+  width: 100%;
+}
+
+.active-rule p{
+  font-size: 10pt;
+  line-height: 15pt;
+}
+
+
+.display-sesize{
+  width: 100%;
+  height: 35px;
+}
