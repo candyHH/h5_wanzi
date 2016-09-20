@@ -33,15 +33,16 @@ html,body{
 
 .num-input img{
   width: 100%;
-  height: 4.8%;
+  height: 35px;
 }
 
 .number{
   width: 80%;
-  margin: -10% 0 0 10%;
+  margin: -38px 0 0 10%;
   display: block;
   border: none;
   position: relative;
+  height: 32px;
 }
 
 .get-cunpon{
