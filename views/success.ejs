@@ -44,6 +44,8 @@
       </div>
     </div>
     <div class="display-sesize"></div>
+    <div class="share-bg"></div>
+    <img src="images/shareTip.png" alt="分享提示" / class="shareTip">
   </body>
 
   <%include include_share.ejs %>
@@ -51,8 +53,7 @@
     window.onload = function () {
       var flag = '<%=flag%>';
       console.log(flag);
-      if(flag == 0){
-        console.log('zhixingle');
+      if(flag == 1){
         $('.downBtn').show();
         $('.cashBtn').hide();
       }
@@ -61,7 +62,8 @@
       window.location.href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.lalocal.lalocal';
     })
     $('.shareBtn').on('click',function () {
-      window.location.href = 'share';
+      $('.share-bg').show();
+      $('.shareTip').fadeIn(3000);
     })
   </script>
 </html>

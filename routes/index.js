@@ -76,23 +76,6 @@ router.get('/success', function(req, res, next) {
     });
 });
 
-router.get('/share', function(req, res, next) {
-  var thisUrl = req.url;
-  var shareUrl = encodeURIComponent((global.browserURL + thisUrl).split('#')[0]);
-  // console.log(thisUrl);
-  console.log('shareUrl.................'+(global.browserURL + thisUrl).split('#')[0]);
-  superagent
-    .get(global.wechatURL + '/wechat_api/jsconfig?url=' + shareUrl)
-    .end(function(err2, res2) {
-      if (res2 !== undefined && res2.ok) {
-        res2.body.browserUrl = global.browserURL;
-        res.render('share',res2.body);
-      } else {
-        console.error('微信分享api错误。');
-      }
-    });
-});
-
 router.get('/show', function(req, res, next) {
   var number = [];
   var date = [];
