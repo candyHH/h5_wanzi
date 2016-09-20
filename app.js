@@ -41,17 +41,17 @@ if (app.get('env') === 'development'){
   //开发环境
 	global.baseURL = 'http://dev.lalocal.cn:8080';
   global.wechatURL = 'http://node.lalocal.cn';
-  global.browserURL = 'https://dev.lalocal.cn/wechat/h5Moon';//浏览器实际url
+  global.browserURL = 'https://dev.lalocal.cn/wechat/h5Wanzi';//浏览器实际url
 }else if (app.get('env') === 'production'){
 	// 生产环境
 	global.baseURL = 'http://10.117.198.127:8080';
   global.wechatURL = 'http://node.lalocal.cn';
-  global.browserURL = 'https://h5.lalocal.cn/h5Moon';
+  global.browserURL = 'https://h5.lalocal.cn/h5Wanzi';
 }else if (app.get('env') === 'localhost'){
 	// 本地
 	global.baseURL = 'http://dev.lalocal.cn:8080';
   global.wechatURL = 'http://node.lalocal.cn';
-  global.browserURL = 'http://192.168.10.222/h5Moon';
+  global.browserURL = 'http://192.168.10.222/h5Wanzi';
 }else{
 	global.baseURL = 'http://dev.lalocal.cn:8080';
 }
