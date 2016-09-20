@@ -63,6 +63,9 @@
     $('.downBtn').on('click',function () {
       window.location.href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.lalocal.lalocal';
     })
+    $('.cashBtn').on('click',function () {
+      window.location.href = 'lalocal://app?{"targetType": "19","targetId": "","targetUrl": ""}';
+    })
     $('.shareBtn').on('click',function () {
       $('div:first').addClass('share-div');
       $('.share-bg').show();
