@@ -50,7 +50,9 @@
   <script type="text/javascript">
     window.onload = function () {
       var flag = '<%=flag%>';
-      if(flag == true){
+      console.log(flag);
+      if(flag == 0){
+        console.log('zhixingle');
         $('.downBtn').show();
         $('.cashBtn').hide();
       }

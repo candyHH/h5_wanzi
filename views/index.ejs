@@ -45,7 +45,7 @@
         alert('请输入11位数字');
         $('.number').val('');
       }else{
-        var data = (new Date()).toLocaleDateString() + "" + (new Date()).toLocaleTimeString();
+        var data = (new Date()).toLocaleDateString() + "," + (new Date()).toLocaleTimeString();
         console.log(data);
         var isWechat = '<%=isWechat%>';
         $.ajax({
