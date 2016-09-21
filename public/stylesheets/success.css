@@ -42,16 +42,22 @@ html,body{
   width: 100%;
 }
 
+.lalocal-title{
+  margin: -15% 0 0 35%;
+  font-size: 12px;
+}
+
+.wanzi-title{
+  margin: -12.5% 0 0 35%;
+  font-size: 12px;
+}
+
 .lalocalCoupon{
   margin:0 0 2% 0;
 }
 
 .wanziCoupon{
   margin: 2% 0 0 0;
-}
-
-.coupon h6{
-  margin: -14% 0 0 34%;
 }
 
 .btn-group{
