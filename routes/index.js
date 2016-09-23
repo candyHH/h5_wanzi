@@ -33,12 +33,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/index', function(req, res, next) {
-  var isWechat = false;
+  var isWechat = 0;
   var agentID = req.headers['user-agent'].toLowerCase().search(/(micromessenger)/);
   if (agentID > 0) {
-      isWechat = true;
+      isWechat = 1;
   } else {
-      isWechat = false;
+      isWechat = 0;
   }
   var thisUrl = req.url;
   var shareUrl = encodeURIComponent((global.browserURL + thisUrl).split('#')[0]);
