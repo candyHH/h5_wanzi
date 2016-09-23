@@ -8,12 +8,18 @@ client.auth(config.redis.pwd);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var isWechat = 0;
-  var agentID = req.headers['user-agent'].toLowerCase().search(/(micromessenger)/);
-  if (agentID > 0) {
-      isWechat = 1;
-  } else {
-      isWechat = 0;
+  // var isApp = 0;
+  // var agentID = req.headers['user-agent'].toLowerCase().search(/(micromessenger)/);
+  // if (agentID > 0) {
+  //     isApp = 1;
+  // } else {
+  //     isApp = 0;
+  // }
+  var isApp = req.query.isApp;
+  if(isApp !=null && isApp!=''){
+    isApp = 1;
+  }else{
+    isApp = 0;
   }
   var thisUrl = req.url;
   var shareUrl = encodeURIComponent((global.browserURL + thisUrl).split('#')[0]);
@@ -23,7 +29,7 @@ router.get('/', function(req, res, next) {
     .get(global.wechatURL + '/wechat_api/jsconfig?url=' + shareUrl)
     .end(function(err2, res2) {
       if (res2 !== undefined && res2.ok) {
-        res2.body.isWechat = isWechat;
+        res2.body.isApp = isApp;
         res2.body.browserUrl = global.browserURL;
         res.render('index', res2.body);
       } else {
